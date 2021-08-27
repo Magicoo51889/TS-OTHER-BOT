@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-import { Client, Message } from "discord.js";
+import { Message } from "discord.js";
 import { validateEnv} from "./utils/validateEnv";
 import { onMessage } from "./events/onMessage";
 
