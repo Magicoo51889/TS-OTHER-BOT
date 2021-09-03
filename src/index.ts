@@ -7,7 +7,7 @@ const { Client, Intents } = require('discord.js');
 (async () => {
     if (!validateEnv()) return;
 
-    const BOT = new Client();
+    const BOT = new Client({ intents: [Intents.FLAGS.GUILDS] });
 
     BOT.on("ready", () => console.log("Connected to Discord"));
     BOT.on("message", async (message: Message) => await onMessage(message));
