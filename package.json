@@ -1,7 +1,7 @@
 {
   "name": "ts-other-bot",
   "version": "1.0.0",
-  "description": "",
+  "description": "This bot is a multipurpose bot created using typescript.  The bot uses:",
   "main": "index.js",
   "scripts": {
     "build": "tsc",
@@ -19,5 +19,14 @@
   "devDependencies": {
     "@types/node": "^16.7.3",
     "typescript": "^4.4.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Magicoo51889/TS-OTHER-BOT.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/Magicoo51889/TS-OTHER-BOT/issues"
+  },
+  "homepage": "https://github.com/Magicoo51889/TS-OTHER-BOT#readme"
 }
