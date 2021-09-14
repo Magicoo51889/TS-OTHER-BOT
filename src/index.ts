@@ -2,17 +2,25 @@ import { Message } from "discord.js";
 import { validateEnv} from "./utils/validateEnv";
 import { onMessage } from "./events/onMessage";
 
-const { Client, Intents, Discord } = require('discord.js');
+const { Client, Intents } = require('discord.js');
 
 (async () => {
     if (!validateEnv()) return;
 
-    const BOT = new Discord.Client({ intents: [Intents.FLAGS.GUILDS] });
+    const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
 
-    BOT.on("ready", () => console.log("Connected to Discord"));
-    BOT.on("message", async (message: Message) => await onMessage(message));
-    BOT.user.setActivity('Jack\'s BOT', { type: 'WATCHING' });
+    client.on("ready", () => {
+        console.log("Connected to Discord")
+        client.user.setActivity('Jack\'s BOT', { type: 'WATCHING' })
+    });
 
-    await BOT.login(process.env.BOT_TOKEN);
+    client.on("message", async (message: Message) => await onMessage(message));
+    await client.login(process.env.client_TOKEN);
+    
+    client.on('message', (recievedMessage: { author: string; }) => {
+        if (recievedMessage.author == client.user) {
+            return
+        }
+    })
 
 })();

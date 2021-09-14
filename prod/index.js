@@ -11,13 +11,15 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const validateEnv_1 = require("./utils/validateEnv");
 const onMessage_1 = require("./events/onMessage");
-const { Client, Intents } = require('discord.js');
+const { Client, Intents, Discord } = require('discord.js');
 (() => __awaiter(void 0, void 0, void 0, function* () {
     if (!(0, validateEnv_1.validateEnv)())
         return;
-    const BOT = new Client({ intents: [Intents.FLAGS.GUILDS] });
-    BOT.on("ready", () => console.log("Connected to Discord"));
-    BOT.on("message", (message) => __awaiter(void 0, void 0, void 0, function* () { return yield (0, onMessage_1.onMessage)(message); }));
-    BOT.user.setActivity('Jack\'s BOT', { type: 'WATCHING' });
-    yield BOT.login(process.env.BOT_TOKEN);
+    const client = new Discord.Client({ intents: [Intents.FLAGS.GUILDS] });
+    client.on("ready", () => {
+        console.log("Connected to Discord");
+        client.user.setActivity('Jack\'s BOT', { type: 'WATCHING' });
+    });
+    client.on("message", (message) => __awaiter(void 0, void 0, void 0, function* () { return yield (0, onMessage_1.onMessage)(message); }));
+    yield client.login(process.env.client_TOKEN);
 }))();
