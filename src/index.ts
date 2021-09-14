@@ -11,6 +11,7 @@ const { Client, Intents } = require('discord.js');
 
     BOT.on("ready", () => console.log("Connected to Discord"));
     BOT.on("message", async (message: Message) => await onMessage(message));
+    BOT.user.setActivity('Jack\'s BOT', { type: 'WATCHING' });
 
     await BOT.login(process.env.BOT_TOKEN);
 
