@@ -10,12 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.onMessage = void 0;
-const index_1 = require("./src/index");
 const onMessage = (message) => __awaiter(void 0, void 0, void 0, function* () {
     console.log(message.content);
 });
 exports.onMessage = onMessage;
-index_1.client.on('message', (recievedMessage) => {
-    if (recievedMessage.author == index_1.client.user)
-        ;
-});
