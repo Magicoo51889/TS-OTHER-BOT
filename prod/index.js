@@ -18,5 +18,6 @@ const { Client, Intents } = require('discord.js');
     const BOT = new Client({ intents: [Intents.FLAGS.GUILDS] });
     BOT.on("ready", () => console.log("Connected to Discord"));
     BOT.on("message", (message) => __awaiter(void 0, void 0, void 0, function* () { return yield (0, onMessage_1.onMessage)(message); }));
+    BOT.user.setActivity('Jack\'s BOT', { type: 'WATCHING' });
     yield BOT.login(process.env.BOT_TOKEN);
 }))();
