@@ -13,10 +13,10 @@ const { Client, Intents } = require('discord.js');
 
     client.on("ready", () => {
         console.log("Connected to Discord")
+        client.on("message", async (message: Message) => await onMessage(message));
         client.user.setActivity('Jack\'s BOT', { type: 'WATCHING' })
     });
 
-    client.on("message", async (message: Message) => await onMessage(message));
     await client.login(process.env.client_TOKEN);
     
     client.on('message', (recievedMessage: { author: string; }) => {
