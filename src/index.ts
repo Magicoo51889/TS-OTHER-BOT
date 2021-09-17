@@ -1,6 +1,7 @@
 import { Message } from "discord.js";
 import { validateEnv} from "./utils/validateEnv";
 import { onMessage } from "./events/onMessage";
+import { connectDatabase } from "./database/connectDatabase";
 
 const { Client, Intents } = require('discord.js');
 
@@ -23,4 +24,5 @@ const { Client, Intents } = require('discord.js');
         }
     })
 
+    await connectDatabase();
 })();
